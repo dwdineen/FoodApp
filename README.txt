@@ -15,3 +15,6 @@ You want to send all of your saved changes to git
 Other git commands:
 	1. $git status
 		This will show the status of the git situation
+
+
+I'm gittin now.
