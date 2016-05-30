@@ -9,7 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import dwd.foodapp.R;
 import dwd.foodapp.constants.Constants;
@@ -26,8 +28,9 @@ public class InvMenuActivity extends AppCompatActivity {
 
 	private void makeCategoryButtons() {
 
-		ArrayAdapter <String> AA = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-									Constants.INV_CATEGORY_NAMES);
+		ListAdapter AA = new ArrayAdapter(this, R.layout.row_layout, R.id.testAdapterRow,
+				Constants.INV_CATEGORY_NAMES) {
+		};
 
 		ListView LV = (ListView) findViewById(R.id.invMenuListView);
 		LV.setAdapter(AA);

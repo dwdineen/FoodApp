@@ -17,17 +17,15 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
 		Button InventoryButton = (Button)findViewById(R.id.btnInventory);
-		InventoryButton.setOnClickListener(A);
+		InventoryButton.setOnClickListener(invPress);
 
 
     }
 
 
-	View.OnClickListener A = new View.OnClickListener() {
+	View.OnClickListener invPress = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Button btn = (Button) v;
-			btn.setText("Test");
 
 			Intent intent = new Intent(MainMenuActivity.this, InvMenuActivity.class);
 			startActivity(intent);

@@ -15,15 +15,7 @@ public class InventoryActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inventory);
 
-		ListView L = (ListView) findViewById(R.id.invList);
-		for (int i = 0; i < 10; i++){
 
-			Button tempButton = new Button(this);
-			tempButton.setText("Hello");
-			L.addView(tempButton);
-
-
-		}
 
 
 
