@@ -1,17 +1,19 @@
-package dwd.foodapp;
+package dwd.foodapp.activities;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuActivity extends AppCompatActivity {
+import dwd.foodapp.R;
+
+public class MainMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_main_menu);
 
 
 		Button InventoryButton = (Button)findViewById(R.id.btnInventory);
@@ -24,8 +26,12 @@ public class MenuActivity extends AppCompatActivity {
 	View.OnClickListener A = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Button btn = (Button)v;
+			Button btn = (Button) v;
 			btn.setText("Test");
+
+			Intent intent = new Intent(MainMenuActivity.this, InvMenuActivity.class);
+			startActivity(intent);
+
 		}
 	};
 
