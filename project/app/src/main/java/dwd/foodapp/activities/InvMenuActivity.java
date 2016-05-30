@@ -1,20 +1,16 @@
 package dwd.foodapp.activities;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import dwd.foodapp.R;
-import dwd.foodapp.constants.Constants;
+import dwd.foodapp.adapters.InvMenuAdapter;
+import dwd.foodapp.statics.Constants;
 
 public class InvMenuActivity extends AppCompatActivity {
 
@@ -28,11 +24,9 @@ public class InvMenuActivity extends AppCompatActivity {
 
 	private void makeCategoryButtons() {
 
-		ListAdapter AA = new ArrayAdapter(this, R.layout.row_layout, R.id.testAdapterRow,
-				Constants.INV_CATEGORY_NAMES) {
-		};
+		ListAdapter AA = new InvMenuAdapter(this, Constants.INV_CATEGORY_NAMES);
 
-		ListView LV = (ListView) findViewById(R.id.invMenuListView);
+		ListView LV = (ListView) findViewById(R.id.ListView_InvMenu);
 		LV.setAdapter(AA);
 		LV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
