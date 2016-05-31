@@ -1,34 +1,36 @@
 package dwd.foodapp.adapters;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
 import android.widget.TextView;
 
 import dwd.foodapp.R;
 
-public class InventoryAdapter extends ArrayAdapter{
+public class InventoryAdapter extends CursorAdapter {
 
 
-	public InventoryAdapter(Context context, String[] values) {
-		super(context, R.layout.layout_inventory_row, values);
+	public InventoryAdapter(Context context, Cursor c) {
+		super(context, c, 0);
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View newView(Context context, Cursor cursor, ViewGroup parent) {
+		return LayoutInflater.from(context).inflate(R.layout.layout_inventory_row, parent, false);
+	}
 
-		LayoutInflater theInflater = LayoutInflater.from(getContext());
+	@Override
+	public void bindView(View view, Context context, Cursor cursor) {
+		TextView tvName = (TextView) view.findViewById(R.id.TextView_InventoryListLayout);
 
-		View theView = theInflater.inflate(R.layout.layout_inventory_row, parent, false);
+		//Extracts from cursor
+		String s = cursor.getString(cursor.getColumnIndexOrThrow("Name"));
 
-		String S = getItem(position).toString();
-		TextView tv = (TextView) theView.findViewById(R.id.TextView_InventoryListLayout);
-
-		tv.setText(S);
-
-		return theView;
-
+		//Sets the things
+		tvName.setText(s);
 	}
 }
