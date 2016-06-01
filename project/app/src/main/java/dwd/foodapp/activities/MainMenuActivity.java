@@ -19,11 +19,13 @@ public class MainMenuActivity extends AppCompatActivity {
 		Button InventoryButton = (Button)findViewById(R.id.btnInventory);
 		InventoryButton.setOnClickListener(invPress);
 
+		Button AddNew = (Button)findViewById(R.id.btn_MainMenu_AddNewFood);
+		AddNew.setOnClickListener(newPress);
 
     }
 
 
-	View.OnClickListener invPress = new View.OnClickListener() {
+	private View.OnClickListener invPress = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
 
@@ -33,6 +35,15 @@ public class MainMenuActivity extends AppCompatActivity {
 		}
 	};
 
+	private View.OnClickListener newPress = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+
+			Intent intent = new Intent(MainMenuActivity.this, NewFoodActivity.class);
+			startActivity(intent);
+
+		}
+	};
 
 
 }

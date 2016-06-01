@@ -5,4 +5,5 @@
 
     <dimen name="inv_menu_list_height">50dp</dimen>
     <dimen name="inventory_list_height">50dp</dimen>
+    <dimen name="new_food_cat_list_height">40dp</dimen>
 </resources>

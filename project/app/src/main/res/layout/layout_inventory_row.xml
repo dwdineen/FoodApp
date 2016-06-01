@@ -7,9 +7,14 @@
 
     tools:context=".activities.InventoryActivity"
     android:orientation="horizontal"
-    android:weightSum="1">
+    android:descendantFocusability="blocksDescendants"
+
+    android:background="#FFFFFF"
+    >
+
 
     <TextView
+        android:paddingLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/inventory_list_height"
         android:id="@+id/TextView_InventoryListLayout"

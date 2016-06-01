@@ -1,6 +1,7 @@
 package dwd.foodapp.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +9,18 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 import dwd.foodapp.R;
 import dwd.foodapp.adapters.InvMenuAdapter;
+import dwd.foodapp.objs.Food;
 import dwd.foodapp.statics.Constants;
+import dwd.foodapp.statics.GeneralFunctions;
 
 public class InvMenuActivity extends AppCompatActivity {
 
@@ -32,15 +42,70 @@ public class InvMenuActivity extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-				Intent intent = new Intent(InvMenuActivity.this, InventoryActivity.class);
-				intent.putExtra("categoryName", String.valueOf(parent.getItemAtPosition(position)));
+				String catName = String.valueOf(parent.getItemAtPosition(position));
 
-				startActivity(intent);
+				Intent temp = new Intent(InvMenuActivity.this, InventoryActivity.class);
+				temp.putExtra("categoryName", catName);
+
+				GetJsonForInv G = new GetJsonForInv(temp);
+				G.execute(catName);
+
+
 			}
 		});
 
 	}
 
+
+	private class GetJsonForInv extends AsyncTask<String, String, String> {
+
+		Intent intent;
+
+		GetJsonForInv(Intent i){
+			intent = i;
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+
+			String cat = params[0];
+
+			String result = "";
+
+			try {
+				URL url = new URL(Constants.PHP_URL +"?fun=getByCat&cat=" + cat);
+				URLConnection urlConnection = url.openConnection();
+				InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+
+				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+				StringBuffer buffer = new StringBuffer();
+
+				String line;
+				while ((line = reader.readLine()) != null){
+					buffer.append(line);
+				}
+
+				result = buffer.toString();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+
+			Food[] foods = GeneralFunctions.makeFoodArray(s);
+
+
+			intent.putExtra("FoodArr", foods);
+
+			startActivity(intent);
+
+		}
+	}
 
 
 }

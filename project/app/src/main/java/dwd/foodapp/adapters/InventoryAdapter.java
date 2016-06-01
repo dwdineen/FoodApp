@@ -1,36 +1,50 @@
 package dwd.foodapp.adapters;
 
 import android.content.Context;
-import android.database.Cursor;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import dwd.foodapp.R;
+import dwd.foodapp.objs.Food;
+import dwd.foodapp.statics.Constants;
 
-public class InventoryAdapter extends CursorAdapter {
+public class InventoryAdapter extends ArrayAdapter{
 
 
-	public InventoryAdapter(Context context, Cursor c) {
-		super(context, c, 0);
+	public InventoryAdapter(Context context, Food[] foods) {
+		super(context, R.layout.layout_inventory_row, foods);
 	}
 
 	@Override
-	public View newView(Context context, Cursor cursor, ViewGroup parent) {
-		return LayoutInflater.from(context).inflate(R.layout.layout_inventory_row, parent, false);
-	}
+	public View getView(int position, View convertView, ViewGroup parent) {
 
-	@Override
-	public void bindView(View view, Context context, Cursor cursor) {
-		TextView tvName = (TextView) view.findViewById(R.id.TextView_InventoryListLayout);
+		LayoutInflater theInflater = LayoutInflater.from(getContext());
 
-		//Extracts from cursor
-		String s = cursor.getString(cursor.getColumnIndexOrThrow("Name"));
+		View theView = theInflater.inflate(R.layout.layout_inventory_row, parent, false);
 
-		//Sets the things
-		tvName.setText(s);
+		Food thisFood = (Food) getItem(position);
+
+		String S = thisFood.getName();
+		boolean stock = thisFood.getStock();
+
+
+		TextView tv = (TextView) theView.findViewById(R.id.TextView_InventoryListLayout);
+
+		if (stock) {
+			theView.setBackgroundColor(Color.parseColor(Constants.INVENTORY_LIST_IN_STOCK_COLOR));
+		}else{
+			theView.setBackgroundColor(Color.parseColor(Constants.INVENTORY_LIST_OUT_STOCK_COLOR));
+		}
+
+		tv.setText(S);
+
+		return theView;
+
 	}
 }

@@ -38,4 +38,16 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="94dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Food"
+        android:id="@+id/btn_MainMenu_AddNewFood"
+        android:layout_below="@+id/btnShopping"
+        android:layout_alignLeft="@+id/btnShopping"
+        android:layout_alignStart="@+id/btnShopping"
+        android:layout_marginTop="49dp"
+        android:layout_alignRight="@+id/btnShopping"
+        android:layout_alignEnd="@+id/btnShopping"/>
 </RelativeLayout>

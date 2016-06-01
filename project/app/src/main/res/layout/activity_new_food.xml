@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".activities.NewFoodActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add a New Food"
+        android:id="@+id/textView_NewFoodName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="35sp"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:id="@+id/editText_NewFoodName"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/textView_NewFoodName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#bceed5"
+        android:inputType="textCapWords|text"
+        android:gravity="left|bottom"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        android:textSize="25sp"
+        android:hint="Name of new food"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/btn_NewFoodSubmit"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/btn_NewFoodSubmit"
+        android:layout_below="@+id/editText_NewFoodName"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

@@ -5,12 +5,7 @@ import android.util.JsonReader;
 
 public class Constants {
 
-	final public static String SQL_PASS = "asdfghjkl";
-	final public static String SQL_LOGIN = "FoodAppUser";
-	final public static String SQL_LOCATION = "dssdb.cltsfmzxyusu.us-east-1.rds.amazonaws.com:50000";
-	final public static String SQL_DB_NAME = "FoodAppDB";
-
-
+	final public static String PHP_URL = "http://192.168.1.121:80";
 	final public static String[] INV_CATEGORY_NAMES =
 			{"Breakfast", "Lunch", "Dinner", "Snacks"};
 
@@ -18,6 +13,8 @@ public class Constants {
 			{"Bananas", "Pickles", "Bread", "Milk", "Apples", "Pineapples"};
 
 
+	final public static String INVENTORY_LIST_IN_STOCK_COLOR = "#b3ffb3";
+	final public static String INVENTORY_LIST_OUT_STOCK_COLOR = "#ff9999";
 }
 
 

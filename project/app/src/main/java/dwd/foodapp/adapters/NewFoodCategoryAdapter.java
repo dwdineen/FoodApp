@@ -7,29 +7,27 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import dwd.foodapp.R;
-import dwd.foodapp.objs.Food;
 
-public class InventoryAdapter_old extends ArrayAdapter{
+public class NewFoodCategoryAdapter extends ArrayAdapter{
 
 
-	public InventoryAdapter_old(Context context, Food[] foods) {
-		super(context, R.layout.layout_inventory_row, foods);
+	public NewFoodCategoryAdapter(Context context, String[] categoryNames) {
+		super(context, R.layout.layout_inv_menu_row, categoryNames);
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
+		//Creates the view
 		LayoutInflater theInflater = LayoutInflater.from(getContext());
+		View theView = theInflater.inflate(R.layout.layout_inv_menu_row, parent, false);
 
-		View theView = theInflater.inflate(R.layout.layout_inventory_row, parent, false);
-
+		//Deals with the names
 		String S = getItem(position).toString();
-		TextView tv = (TextView) theView.findViewById(R.id.TextView_InventoryListLayout);
-
+		TextView tv = (TextView) theView.findViewById(R.id.TextView_InvMenuLayout);
 		tv.setText(S);
+
 
 		return theView;
 
