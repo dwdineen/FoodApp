@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".activities.InventoryActivity">
         </activity>
-        <activity android:name=".activities.NewFoodActivity">
+        <activity android:name=".activities.NewFoodActivity"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

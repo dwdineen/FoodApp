@@ -9,7 +9,6 @@
     android:weightSum="1">
 
     <TextView
-        android:background="#00ff00"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/inv_menu_list_height"
         android:id="@+id/TextView_InvMenuLayout"

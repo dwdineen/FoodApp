@@ -21,11 +21,11 @@ public class NewFoodCategoryAdapter extends ArrayAdapter{
 
 		//Creates the view
 		LayoutInflater theInflater = LayoutInflater.from(getContext());
-		View theView = theInflater.inflate(R.layout.layout_inv_menu_row, parent, false);
+		View theView = theInflater.inflate(R.layout.layout_new_food_category_row, parent, false);
 
 		//Deals with the names
 		String S = getItem(position).toString();
-		TextView tv = (TextView) theView.findViewById(R.id.TextView_InvMenuLayout);
+		TextView tv = (TextView) theView.findViewById(R.id.TextView_NewFoodLayout);
 		tv.setText(S);
 
 

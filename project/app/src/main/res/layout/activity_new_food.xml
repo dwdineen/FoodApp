@@ -24,37 +24,52 @@
         android:textSize="35sp"/>
 
     <EditText
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:id="@+id/editText_NewFoodName"
         android:layout_marginTop="27dp"
         android:layout_below="@+id/textView_NewFoodName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#bceed5"
+        android:background="#ffcc99"
         android:inputType="textCapWords|text"
         android:gravity="left|bottom"
         android:paddingLeft="5dp"
         android:paddingBottom="5dp"
         android:textSize="25sp"
-        android:hint="Name of new food"/>
+        android:hint="Name of new food"
+        android:imeOptions="actionDone"
+        android:layout_toStartOf="@+id/btn_newFoodStock"
+        android:layout_toLeftOf="@+id/btn_newFoodStock"
+        android:layout_marginRight="10dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/btn_NewFoodSubmit"
+        android:focusable="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/listView_newFood"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/btn_NewFoodSubmit"
         android:layout_below="@+id/editText_NewFoodName"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:focusable="false"/>
+
+    <Button
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/btn_newFoodStock"
+        android:layout_above="@+id/listView_newFood"
+        android:layout_alignRight="@+id/listView_newFood"
+        android:layout_alignEnd="@+id/listView_newFood"
+        android:padding="7dp"/>
 
 </RelativeLayout>

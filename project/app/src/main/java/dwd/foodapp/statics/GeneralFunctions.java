@@ -1,5 +1,7 @@
 package dwd.foodapp.statics;
 
+import android.widget.EditText;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -63,5 +65,18 @@ public class GeneralFunctions {
 		return s.replace("'", "\\'");
 	}
 
+	public static boolean isEmpty(EditText etText) {
+		if (etText.getText().toString().trim().length() > 0)
+			return false;
+
+		return true;
+	}
+
+	public static String makeStringInternetWorthy(String s){
+		s = s.trim();
+		s = s.replace(" ","%20");
+		return s;
+
+	}
 }
 
