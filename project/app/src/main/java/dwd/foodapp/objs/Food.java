@@ -6,6 +6,7 @@ public class Food implements java.io.Serializable{
 	private String name;
 	private boolean stock;
 	private int id;
+	private boolean inCart;
 
 	public int getId() {
 		return id;
@@ -31,5 +32,11 @@ public class Food implements java.io.Serializable{
 		return stock;
 	}
 
+	public boolean isInCart() {
+		return inCart;
+	}
 
+	public void setInCart(boolean inCart) {
+		this.inCart = inCart;
+	}
 }

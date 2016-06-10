@@ -30,17 +30,18 @@
         android:layout_alignParentRight="true"
         android:text="L"
         android:id="@+id/btnLike_Inventory_Layout"
-        />
+        android:visibility="invisible"/>
 
-    <Button
+    <ImageButton
         android:layout_height= "@dimen/inventory_list_height"
         android:layout_width= "@dimen/inventory_list_height"
-        android:text="R"
+        android:src="@mipmap/shopping_cart"
         android:id="@+id/btnReorder_Inventory_Layout"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/btnLike_Inventory_Layout"
         android:layout_toStartOf="@+id/btnLike_Inventory_Layout"
-        />
+        android:padding="5dp"
+        android:scaleType="fitCenter"/>
 
 
 </RelativeLayout>

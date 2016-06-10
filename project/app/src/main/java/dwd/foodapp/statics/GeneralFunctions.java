@@ -25,14 +25,15 @@ public class GeneralFunctions {
 				String name = jsonFoods.getJSONObject(i).getString("Name");
 				int stock = jsonFoods.getJSONObject(i).getInt("Stock");
 				int id = jsonFoods.getJSONObject(i).getInt("FoodNum");
-
+				int cart = jsonFoods.getJSONObject(i).getInt("InCart");
 
 
 				Food temp = new Food();
 
 				temp.setId(id);
-				temp.setName(dealWithApo(name));
+				temp.setName(dealWithApostrophe(name));
 				temp.setStock(intToBool(stock));
+				temp.setInCart(intToBool(cart));
 
 				foods.add(temp);
 
@@ -61,7 +62,7 @@ public class GeneralFunctions {
 			return 0;
 	}
 
-	public static String dealWithApo(String s){
+	public static String dealWithApostrophe(String s){
 		return s.replace("'", "\\'");
 	}
 

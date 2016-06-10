@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import dwd.foodapp.R;
+import dwd.foodapp.activities.InvMenuActivity;
 
 public class InvMenuAdapter extends ArrayAdapter{
 
@@ -20,6 +21,7 @@ public class InvMenuAdapter extends ArrayAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
+
 		//Creates the view
 		LayoutInflater theInflater = LayoutInflater.from(getContext());
 		View theView = theInflater.inflate(R.layout.layout_inv_menu_row, parent, false);
@@ -28,6 +30,7 @@ public class InvMenuAdapter extends ArrayAdapter{
 		String S = getItem(position).toString();
 		TextView tv = (TextView) theView.findViewById(R.id.TextView_InvMenuLayout);
 		tv.setText(S);
+
 
 
 		return theView;

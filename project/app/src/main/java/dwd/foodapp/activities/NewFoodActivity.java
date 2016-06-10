@@ -26,7 +26,7 @@ import dwd.foodapp.statics.GeneralFunctions;
 
 public class NewFoodActivity extends AppCompatActivity {
 
-	private boolean[] selectedCats = new boolean[Constants.INV_CATEGORY_NAMES.length];
+	public boolean[] selectedCats = new boolean[Constants.INV_CATEGORY_NAMES.length];
 	private boolean stock = false;
 
 	@Override
@@ -39,11 +39,26 @@ public class NewFoodActivity extends AppCompatActivity {
 		}
 
 
-		ListAdapter AA = new NewFoodCategoryAdapter(this, Constants.INV_CATEGORY_NAMES);
+		ListAdapter AA = new NewFoodCategoryAdapter(this, Constants.INV_CATEGORY_NAMES, selectedCats);
 		ListView LV = (ListView) findViewById(R.id.listView_newFood);
 		assert LV != null;
 		LV.setAdapter(AA);
-		LV.setOnItemClickListener(onCatClick);
+		LV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+				selectedCats[pos] = !selectedCats[pos];
+
+
+				if (selectedCats[pos])
+					view.setBackgroundColor(Color.parseColor(Constants.NEW_FOOD_CAT_SELECTED));
+				else
+					view.setBackgroundColor(Color.parseColor(Constants.NEW_FOOD_CAT_NOT_SELECTED));
+
+
+			}
+		});
+
 
 		final EditText ET = (EditText) findViewById(R.id.editText_NewFoodName);
 		assert ET != null;
@@ -82,20 +97,6 @@ public class NewFoodActivity extends AppCompatActivity {
 
 	}
 
-
-	private AdapterView.OnItemClickListener onCatClick = new AdapterView.OnItemClickListener() {
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-
-			selectedCats[pos] = !selectedCats[pos];
-
-			if (selectedCats[pos])
-				view.setBackgroundColor(Color.parseColor(Constants.NEW_FOOD_CAT_SELECTED));
-			else
-				view.setBackgroundColor(Color.parseColor(Constants.NEW_FOOD_CAT_NOT_SELECTED));
-
-		}
-	};
 
 	private class Submit extends AsyncTask <String, Void, Void>{
 

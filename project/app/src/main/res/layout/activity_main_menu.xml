@@ -12,7 +12,7 @@
 
 
     <Button
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inventory"
         android:id="@+id/btnInventory"
@@ -23,7 +23,7 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Shopping"
-        android:id="@+id/btnShopping"
+        android:id="@+id/btn_MainMenuShopping"
         android:layout_marginTop="24dp"
         android:layout_below="@+id/btnInventory"
         android:layout_alignLeft="@+id/btnInventory"
@@ -44,10 +44,10 @@
         android:layout_height="wrap_content"
         android:text="Add Food"
         android:id="@+id/btn_MainMenu_AddNewFood"
-        android:layout_below="@+id/btnShopping"
-        android:layout_alignLeft="@+id/btnShopping"
-        android:layout_alignStart="@+id/btnShopping"
+        android:layout_below="@+id/btn_MainMenuShopping"
+        android:layout_alignLeft="@+id/btn_MainMenuShopping"
+        android:layout_alignStart="@+id/btn_MainMenuShopping"
         android:layout_marginTop="49dp"
-        android:layout_alignRight="@+id/btnShopping"
-        android:layout_alignEnd="@+id/btnShopping"/>
+        android:layout_alignRight="@+id/btn_MainMenuShopping"
+        android:layout_alignEnd="@+id/btn_MainMenuShopping"/>
 </RelativeLayout>

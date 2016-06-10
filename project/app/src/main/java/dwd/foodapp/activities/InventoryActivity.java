@@ -31,7 +31,7 @@ public class InventoryActivity extends AppCompatActivity {
 		foods = (Food[]) bundle.get("FoodArr");
 
 
-		//---------Deal with list view
+		//---------Deal with list view--------------------------------
 		ListAdapter AA = new InventoryAdapter(this, foods);
 
 		ListView LV = (ListView) findViewById(R.id.ListView_inventory);
@@ -42,6 +42,9 @@ public class InventoryActivity extends AppCompatActivity {
 				onFoodPress(view, position);
 			}
 		});
+
+
+
 
 	}
 

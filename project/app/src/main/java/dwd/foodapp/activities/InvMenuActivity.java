@@ -34,7 +34,7 @@ public class InvMenuActivity extends AppCompatActivity {
 
 	private void makeCategoryButtons() {
 
-		ListAdapter AA = new InvMenuAdapter(this, Constants.INV_CATEGORY_NAMES);
+		ListAdapter AA = new InvMenuAdapter(this, Constants.INV_CATEGORY_NAMES_WITH_ALL);
 
 		ListView LV = (ListView) findViewById(R.id.ListView_InvMenu);
 		LV.setAdapter(AA);
@@ -73,7 +73,13 @@ public class InvMenuActivity extends AppCompatActivity {
 			String result = "";
 
 			try {
-				URL url = new URL(Constants.PHP_URL +"?fun=getByCat&cat=" + cat);
+
+				URL url;
+				if (cat == "All")
+					url = new URL(Constants.PHP_URL + "?fun=getAll");
+				else
+					url = new URL(Constants.PHP_URL + "?fun=getByCat&cat=" + cat);
+
 				URLConnection urlConnection = url.openConnection();
 				InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
