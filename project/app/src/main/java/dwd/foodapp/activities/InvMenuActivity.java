@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -60,7 +61,6 @@ public class InvMenuActivity extends AppCompatActivity {
 	private class GetJsonForInv extends AsyncTask<String, String, String> {
 
 		Intent intent;
-
 		GetJsonForInv(Intent i){
 			intent = i;
 		}
@@ -69,7 +69,6 @@ public class InvMenuActivity extends AppCompatActivity {
 		protected String doInBackground(String... params) {
 
 			String cat = params[0];
-
 			String result = "";
 
 			try {
@@ -82,7 +81,6 @@ public class InvMenuActivity extends AppCompatActivity {
 
 				URLConnection urlConnection = url.openConnection();
 				InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-
 				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 				StringBuffer buffer = new StringBuffer();
 
@@ -95,6 +93,8 @@ public class InvMenuActivity extends AppCompatActivity {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+				result = "Error";
+
 			}
 
 			return result;
@@ -103,13 +103,16 @@ public class InvMenuActivity extends AppCompatActivity {
 		@Override
 		protected void onPostExecute(String s) {
 
-			Food[] foods = GeneralFunctions.makeFoodArray(s);
+			if (s.equals("Error")){
 
+				Toast.makeText(InvMenuActivity.this, "Error Connecting", Toast.LENGTH_SHORT).show();
 
-			intent.putExtra("FoodArr", foods);
+			}else {
+				Food[] foods = GeneralFunctions.makeFoodArray(s);
 
-			startActivity(intent);
-
+				intent.putExtra("FoodArr", foods);
+				startActivity(intent);
+			}
 		}
 	}
 

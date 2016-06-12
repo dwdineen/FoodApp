@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -32,6 +33,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
 		Button AddNew = (Button)findViewById(R.id.btn_MainMenu_AddNewFood);
 		AddNew.setOnClickListener(newPress);
+		AddNew.setEnabled(false);
+		AddNew.setVisibility(View.INVISIBLE);
 
 		Button Shop = (Button) findViewById(R.id.btn_MainMenuShopping);
 		Shop.setOnClickListener(shopPress);
@@ -101,6 +104,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+				result = "Error";
 			}
 
 			return result;
@@ -109,13 +113,16 @@ public class MainMenuActivity extends AppCompatActivity {
 		@Override
 		protected void onPostExecute(String s) {
 
-			Food[] foods = GeneralFunctions.makeFoodArray(s);
 
+			if (s.equals("Error")){
 
-			intent.putExtra("FoodArr", foods);
+				Toast.makeText(MainMenuActivity.this, "Error Connecting", Toast.LENGTH_SHORT).show();
 
-			startActivity(intent);
-
+			}else {
+				Food[] foods = GeneralFunctions.makeFoodArray(s);
+				intent.putExtra("FoodArr", foods);
+				startActivity(intent);
+			}
 		}
 	}
 

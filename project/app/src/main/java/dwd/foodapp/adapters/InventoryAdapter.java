@@ -55,7 +55,7 @@ public class InventoryAdapter extends ArrayAdapter{
 		//----------------------Cart Button------------------------------------------
 		ImageButton cartBtn = (ImageButton) theView.findViewById(R.id.btnReorder_Inventory_Layout);
 		if (FoodsCopy[position].isInCart())
-			cartBtn.setBackgroundColor(Color.parseColor("#80445566"));
+			cartBtn.setBackgroundColor(Color.parseColor(Constants.IN_CART_SELECTED));
 		else
 			cartBtn.setBackgroundColor(Color.TRANSPARENT);
 		cartBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class InventoryAdapter extends ArrayAdapter{
 
 
 				if (FoodsCopy[position].isInCart())
-					v.setBackgroundColor(Color.parseColor("#80445566"));
+					v.setBackgroundColor(Color.parseColor(Constants.IN_CART_SELECTED));
 				else
 					v.setBackgroundColor(Color.TRANSPARENT);
 

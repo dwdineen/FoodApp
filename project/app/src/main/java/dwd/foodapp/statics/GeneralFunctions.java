@@ -5,7 +5,9 @@ import android.widget.EditText;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 import dwd.foodapp.objs.Food;
@@ -27,6 +29,12 @@ public class GeneralFunctions {
 				int id = jsonFoods.getJSONObject(i).getInt("FoodNum");
 				int cart = jsonFoods.getJSONObject(i).getInt("InCart");
 
+				//----Deal with category string----
+				String cats = jsonFoods.getJSONObject(i).getString("Categories");
+				cats = cats.trim();
+				String[] catsArr = cats.split(" ");
+				ArrayList <String> catsAL = new ArrayList<String>(Arrays.asList(catsArr));
+
 
 				Food temp = new Food();
 
@@ -34,6 +42,7 @@ public class GeneralFunctions {
 				temp.setName(dealWithApostrophe(name));
 				temp.setStock(intToBool(stock));
 				temp.setInCart(intToBool(cart));
+				temp.setCategories(catsAL);
 
 				foods.add(temp);
 

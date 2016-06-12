@@ -27,21 +27,24 @@
     <Button
         android:layout_height= "@dimen/inventory_list_height"
         android:layout_width= "@dimen/inventory_list_height"
-        android:layout_alignParentRight="true"
         android:text="L"
         android:id="@+id/btnLike_Inventory_Layout"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
     <ImageButton
-        android:layout_height= "@dimen/inventory_list_height"
-        android:layout_width= "@dimen/inventory_list_height"
+        android:layout_height= "40dp"
+        android:layout_width= "40dp"
         android:src="@mipmap/shopping_cart"
         android:id="@+id/btnReorder_Inventory_Layout"
+        android:padding="2dp"
+        android:scaleType="fitCenter"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/btnLike_Inventory_Layout"
         android:layout_toStartOf="@+id/btnLike_Inventory_Layout"
-        android:padding="5dp"
-        android:scaleType="fitCenter"/>
+        android:layout_marginTop="5dp"/>
 
 
 </RelativeLayout>

@@ -5,7 +5,7 @@ import android.util.JsonReader;
 
 public class Constants {
 
-	final public static String PHP_URL = "http://192.168.1.106:80";
+	final public static String PHP_URL = "http://54.225.102.170/foodapp/index.php";
 	final public static String[] INV_CATEGORY_NAMES =
 			{"Breakfast", "Lunch", "Dinner", "Snack", "Beverage", "Dessert", "Produce", "Meat", "Canned", "Frozen", "Condiment", "Spice", "Other"};
 
@@ -18,6 +18,9 @@ public class Constants {
 
 	final public static String NEW_FOOD_CAT_SELECTED = "#80daffb3";
 	final public static String NEW_FOOD_CAT_NOT_SELECTED = "#00000000";
+
+	final public static String IN_CART_SELECTED = "#cccccc";
+	//final public static String IN_CART_NOT_SELECTED = "#00000000";
 }
 
 

@@ -1,12 +1,23 @@
 package dwd.foodapp.objs;
 
 
+import java.util.ArrayList;
+
 public class Food implements java.io.Serializable{
 
 	private String name;
 	private boolean stock;
 	private int id;
 	private boolean inCart;
+	private ArrayList <String> categories;
+
+	public ArrayList<String> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(ArrayList<String> categories) {
+		this.categories = categories;
+	}
 
 	public int getId() {
 		return id;
